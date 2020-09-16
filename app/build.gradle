@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.0"
+    compileSdkVersion 27
+    buildToolsVersion "27.+"
 
     defaultConfig {
         applicationId "com.jcdc.gi"
-        minSdkVersion 14
-        targetSdkVersion 21
+        minSdkVersion 15
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
     }
@@ -20,5 +20,9 @@ android {
 }
 
 dependencies {
+	compile ('android.arch.core:runtime:+') {
+       force = true
+       } 
     compile fileTree(dir: 'libs', include: ['*.jar'])
+	implementation 'com.android.support:appcompat-v7:27.+'
 }
