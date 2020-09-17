@@ -9,11 +9,12 @@ public class Usuario extends AppCompatActivity
 	public String celular;
 	public String mail;
 	public String categoria;
+	public String conexion;
 	public String estado;
 	
 	public Usuario(){}
 
-	public Usuario(String id, String nombre, String clave, String celular, String mail, String categoria, String estado)
+	public Usuario(String id, String nombre, String clave, String celular, String mail, String categoria, String conexion, String estado)
 	{
 		this.id = id;
 		this.nombre = nombre;
@@ -21,6 +22,7 @@ public class Usuario extends AppCompatActivity
 		this.celular = celular;
 		this.mail = mail;
 		this.categoria = categoria;
+		this.conexion = conexion;
 		this.estado = estado;
 	}
 	
