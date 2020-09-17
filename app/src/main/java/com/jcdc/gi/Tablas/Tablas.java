@@ -3,25 +3,29 @@ package com.jcdc.gi.Tablas;
 public class Tablas
 {
 	public static final int VERSION_DATABASE = 1;
-	public static final String NOMBRE_DATABASE = "Sistema de gestion de inventario 2020.db";
-	public static final Boolean VERSION_FREE = false;
+	public static final String NOMBRE_DATABASE = "Gestion de Inventario 2021.db";
+	public static final Boolean VERSION_FREE = true;
 
 	//*** Entidad Usuarios ***
 	public static final String TABLA_USUARIOS = "usuarios";
-	public static final String COL_ID_USU = "id_usu";
-	public static final String COL_NOMBRE_USU = "nombre_usu";
-	public static final String COL_PASSWORD_USU = "password";
-	public static final String COL_NIVEL_USU = "nivel";
+	public static final String COL_ID_USU = "id";
+	public static final String COL_NOMBRE_USU = "nombre";
+	public static final String COL_CLAVE_USU = "clave";
+	public static final String COL_CELULAR_USU = "celular";
+	public static final String COL_MAIL_USU = "mail";
+	public static final String COL_CATEGORIA_USU = "categoria";
 	public static final String COL_CONEXION_USU = "conexion";
-	public static final String COL_ESTADO_USU = "estado_usu";
-	public static final Integer N_USU = 5;
+	public static final String COL_ESTADO_USU = "estado";
+	//public static final Integer N_USU = 5;
 
 	public static final String CREAR_TABLA_USUARIOS = "CREATE TABLE "+
 	TABLA_USUARIOS+"("+
 	COL_ID_USU+" TEXT,"+
 	COL_NOMBRE_USU+" TEXT,"+
-	COL_PASSWORD_USU+" TEXT,"+
-	COL_NIVEL_USU+" TEXT,"+
+	COL_CLAVE_USU+" TEXT,"+
+	COL_CELULAR_USU+" TEXT,"+
+	COL_MAIL_USU+" TEXT,"+
+	COL_CATEGORIA_USU+" TEXT,"+
 	COL_CONEXION_USU+" TEXT,"+
 	COL_ESTADO_USU+" TEXT)";
 
