@@ -1,23 +1,23 @@
 package com.jcdc.gi.Entidades;
 
-public class Compra
+public class Transitoria
 {
 	public String proforma;
 	public String id_producto;
-	public String id_proveedor;
+	public String id_clie_prov;
 	public String id_usuario;
 	public String cantidad;
 	public String precio;
 	public String fecha;
 	public String saldo;
 	
-	public Compra(){}
+	public void Transitoria(){}
 
-	public Compra(String proforma, String id_producto, String id_proveedor, String id_usuario, String cantidad, String precio, String fecha, String saldo)
+	public Transitoria(String proforma, String id_producto, String id_clie_prov, String id_usuario, String cantidad, String precio, String fecha, String saldo)
 	{
 		this.proforma = proforma;
 		this.id_producto = id_producto;
-		this.id_proveedor = id_proveedor;
+		this.id_clie_prov = id_clie_prov;
 		this.id_usuario = id_usuario;
 		this.cantidad = cantidad;
 		this.precio = precio;
@@ -45,14 +45,14 @@ public class Compra
 		return id_producto;
 	}
 
-	public void setId_proveedor(String id_proveedor)
+	public void setId_clie_prov(String id_clie_prov)
 	{
-		this.id_proveedor = id_proveedor;
+		this.id_clie_prov = id_clie_prov;
 	}
 
-	public String getId_proveedor()
+	public String getId_clie_prov()
 	{
-		return id_proveedor;
+		return id_clie_prov;
 	}
 
 	public void setId_usuario(String id_usuario)
@@ -104,6 +104,4 @@ public class Compra
 	{
 		return saldo;
 	}
-	
-	
 }

@@ -1,9 +1,8 @@
 package com.jcdc.gi.Metodos;
 import android.content.*;
-import android.support.v7.app.*;
 import android.widget.*;
 
-public class Metodos extends AppCompatActivity
+public class Metodos
 {
 	
 	private static Context context;

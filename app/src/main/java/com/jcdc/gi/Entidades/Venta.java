@@ -1,7 +1,6 @@
 package com.jcdc.gi.Entidades;
-import android.support.v7.app.*;
 
-public class Venta extends AppCompatActivity
+public class Venta
 {
 	public String proforma;
 	public String id_producto;
@@ -24,6 +23,86 @@ public class Venta extends AppCompatActivity
 		this.precio = precio;
 		this.fecha = fecha;
 		this.saldo = saldo;
+	}
+
+	public void setProforma(String proforma)
+	{
+		this.proforma = proforma;
+	}
+
+	public String getProforma()
+	{
+		return proforma;
+	}
+
+	public void setId_producto(String id_producto)
+	{
+		this.id_producto = id_producto;
+	}
+
+	public String getId_producto()
+	{
+		return id_producto;
+	}
+
+	public void setId_cliente(String id_cliente)
+	{
+		this.id_cliente = id_cliente;
+	}
+
+	public String getId_cliente()
+	{
+		return id_cliente;
+	}
+
+	public void setId_usuario(String id_usuario)
+	{
+		this.id_usuario = id_usuario;
+	}
+
+	public String getId_usuario()
+	{
+		return id_usuario;
+	}
+
+	public void setCantidad(String cantidad)
+	{
+		this.cantidad = cantidad;
+	}
+
+	public String getCantidad()
+	{
+		return cantidad;
+	}
+
+	public void setPrecio(String precio)
+	{
+		this.precio = precio;
+	}
+
+	public String getPrecio()
+	{
+		return precio;
+	}
+
+	public void setFecha(String fecha)
+	{
+		this.fecha = fecha;
+	}
+
+	public String getFecha()
+	{
+		return fecha;
+	}
+
+	public void setSaldo(String saldo)
+	{
+		this.saldo = saldo;
+	}
+
+	public String getSaldo()
+	{
+		return saldo;
 	}
 	
 	

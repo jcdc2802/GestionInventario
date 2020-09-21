@@ -1,7 +1,6 @@
 package com.jcdc.gi.Entidades;
-import android.support.v7.app.*;
 
-public class Cliente extends AppCompatActivity
+public class Cliente
 {
 	public String id;
 	public String nombre;
@@ -20,6 +19,66 @@ public class Cliente extends AppCompatActivity
 		this.celular = celular;
 		this.mail = mail;
 		this.estado = estado;
+	}
+
+	public void setId(String id)
+	{
+		this.id = id;
+	}
+
+	public String getId()
+	{
+		return id;
+	}
+
+	public void setNombre(String nombre)
+	{
+		this.nombre = nombre;
+	}
+
+	public String getNombre()
+	{
+		return nombre;
+	}
+
+	public void setNit(String nit)
+	{
+		this.nit = nit;
+	}
+
+	public String getNit()
+	{
+		return nit;
+	}
+
+	public void setCelular(String celular)
+	{
+		this.celular = celular;
+	}
+
+	public String getCelular()
+	{
+		return celular;
+	}
+
+	public void setMail(String mail)
+	{
+		this.mail = mail;
+	}
+
+	public String getMail()
+	{
+		return mail;
+	}
+
+	public void setEstado(String estado)
+	{
+		this.estado = estado;
+	}
+
+	public String getEstado()
+	{
+		return estado;
 	}
     
     
