@@ -7,205 +7,239 @@ public class Tablas
 	public static final Boolean VERSION_FREE = true;
 
 	//*** Entidad Usuarios ***
-	public static final String TABLA_USUARIOS = "usuarios";
-	public static final String COL_ID_USU = "id";
-	public static final String COL_NOMBRE_USU = "nombre";
-	public static final String COL_CLAVE_USU = "clave";
-	public static final String COL_CELULAR_USU = "celular";
-	public static final String COL_MAIL_USU = "mail";
-	public static final String COL_CATEGORIA_USU = "categoria";
-	public static final String COL_CONEXION_USU = "conexion";
-	public static final String COL_ESTADO_USU = "estado";
+	public static final String USUARIOS = "usuarios";
+	public static final String USUARIOS_ID = "id";
+	public static final String USUARIOS_NOMBRE = "nombre";
+	public static final String USUARIOS_CLAVE = "clave";
+	public static final String USUARIOS_CELULAR = "celular";
+	public static final String USUARIOS_MAIL = "mail";
+	public static final String USUARIOS_CATEGORIA = "categoria";
+	public static final String USUARIOS_CONEXION = "conexion";
+	public static final String USUARIOS_FIREBASE = "firebase";
+	public static final String USUARIOS_ESTADO = "estado";
 	//public static final Integer N_USU = 5;
-
 	public static final String CREAR_TABLA_USUARIOS = "CREATE TABLE "+
-	TABLA_USUARIOS+"("+
-	COL_ID_USU+" TEXT,"+
-	COL_NOMBRE_USU+" TEXT,"+
-	COL_CLAVE_USU+" TEXT,"+
-	COL_CELULAR_USU+" TEXT,"+
-	COL_MAIL_USU+" TEXT,"+
-	COL_CATEGORIA_USU+" TEXT,"+
-	COL_CONEXION_USU+" TEXT,"+
-	COL_ESTADO_USU+" TEXT)";
+	USUARIOS+"("+
+	USUARIOS_ID+" TEXT,"+
+	USUARIOS_NOMBRE+" TEXT,"+
+	USUARIOS_CLAVE+" TEXT,"+
+	USUARIOS_CELULAR+" TEXT,"+
+	USUARIOS_MAIL+" TEXT,"+
+	USUARIOS_CATEGORIA+" TEXT,"+
+	USUARIOS_CONEXION+" TEXT,"+
+	USUARIOS_FIREBASE+" TEXT,"+
+	USUARIOS_ESTADO+" TEXT)";
 
 	//*** Entidad Clientes ***
-	public static final String TABLA_CLIENTES = "clientes";
-	public static final String COL_ID_CLIE = "id";
-	public static final String COL_NOMBRE_CLIE = "nombre";
-	public static final String COL_NIT_CLIE = "nit";
-	public static final String COL_CELULAR_CLIE = "celular";
-	public static final String COL_MAIL_CLIE = "mail";
-	public static final String COL_ESTADO_CLIE = "estado";
+	public static final String CLIENTES = "clientes";
+	public static final String CLIENTES_ID = "id";
+	public static final String CLIENTES_NOMBRE = "nombre";
+	public static final String CLIENTES_NIT = "nit";
+	public static final String CLIENTES_CELULAR = "celular";
+	public static final String CLIENTES_MAIL = "mail";
+	public static final String CLIENTES_FIREBASE = "firebase";
+	public static final String CLIENTES_ESTADO = "estado";
 	//public static final Integer N_CLIE = 5;
-
 	public static final String CREAR_TABLA_CLIENTES = "CREATE TABLE "+
-	TABLA_CLIENTES+"("+
-	COL_ID_CLIE+" TEXT,"+
-	COL_NOMBRE_CLIE+" TEXT,"+
-	COL_NIT_CLIE+" TEXT,"+
-	COL_CELULAR_CLIE+" TEXT,"+
-	COL_MAIL_CLIE+" TEXT,"+
-	COL_ESTADO_CLIE+" TEXT"+")";
+	CLIENTES+"("+
+	CLIENTES_ID+" TEXT,"+
+	CLIENTES_NOMBRE+" TEXT,"+
+	CLIENTES_NIT+" TEXT,"+
+	CLIENTES_CELULAR+" TEXT,"+
+	CLIENTES_MAIL+" TEXT,"+
+	CLIENTES_FIREBASE+" TEXT,"+
+	CLIENTES_ESTADO+" TEXT"+")";
 
 	//*** Entidad Proveedores ***
-	public static final String TABLA_PROVEEDORES = "proveedores";
-	public static final String COL_ID_PROV = "id";
-	public static final String COL_EMPRESA_PROV = "empresa";
-	public static final String COL_TELEFONO_PROV = "telefono";
-	public static final String COL_PROMOTOR_PROV = "promotor";
-	public static final String COL_CELULAR_PROV = "celular";
-	public static final String COL_MAIL_PROV = "mail";
-	public static final String COL_ESTADO_PROV = "estado";
+	public static final String PROVEEDORES = "proveedores";
+	public static final String PROVEEDORES_ID = "id";
+	public static final String PROVEEDORES_EMPRESA = "empresa";
+	public static final String PROVEEDORES_TELEFONO = "telefono";
+	public static final String PROVEEDORES_PROMOTOR = "promotor";
+	public static final String PROVEEDORES_CELULAR = "celular";
+	public static final String PROVEEDORES_MAIL = "mail";
+	public static final String PROVEEDORES_FIREBASE = "firebase";
+	public static final String PROVEEDORES_ESTADO = "estado";
 	//public static final Integer N_PROV = 5;
-
 	public static final String CREAR_TABLA_PROVEEDORES = "CREATE TABLE "+
-	TABLA_PROVEEDORES+"("+
-	COL_ID_PROV+" TEXT,"+
-	COL_EMPRESA_PROV+" TEXT,"+
-	COL_TELEFONO_PROV+" TEXT,"+
-	COL_PROMOTOR_PROV+" TEXT,"+
-	COL_CELULAR_PROV+" TEXT,"+
-	COL_MAIL_PROV+" TEXT,"+
-	COL_ESTADO_PROV+" TEXT"+")";
+	PROVEEDORES+"("+
+	PROVEEDORES_ID+" TEXT,"+
+	PROVEEDORES_EMPRESA+" TEXT,"+
+	PROVEEDORES_TELEFONO+" TEXT,"+
+	PROVEEDORES_PROMOTOR+" TEXT,"+
+	PROVEEDORES_CELULAR+" TEXT,"+
+	PROVEEDORES_MAIL+" TEXT,"+
+	PROVEEDORES_FIREBASE+" TEXT,"+
+	PROVEEDORES_ESTADO+" TEXT"+")";
 
 	//*** Entidad Productos ***
-	public static final String TABLA_PRODUCTOS = "productos";
-	public static final String COL_ID_PROD = "id";
-	public static final String COL_LINEA_PROD = "linea";
-	public static final String COL_NOMBRE_PROD = "nombre";
-	public static final String COL_CUALIDAD_PROD = "cualidad";
-	public static final String COL_UNIDAD_V_PROD = "unidad_v";
-	public static final String COL_PRECIO_V_PROD = "precio_v";
-	public static final String COL_UNIDAD_C_PROD = "unidad_c";
-	public static final String COL_PRECIO_C_PROD = "precio_c";
-	public static final String COL_STOCK_PROD = "stock";
-	public static final String COL_MINIMO_PROD = "minimo";
-	public static final String COL_ID_PROVEEDOR_PROD = "id_proveedor";
-	public static final String COL_ID_COMBO_PROD = "id_combo";
-	public static final String COL_PRECIO_COMBO_PROD = "precio_combo";
-	public static final String COL_ESTADO_PROD = "estado";
+	public static final String PRODUCTOS = "productos";
+	public static final String PRODUCTOS_ID = "id";
+	public static final String PRODUCTOS_LINEA = "linea";
+	public static final String PRODUCTOS_NOMBRE = "nombre";
+	public static final String PRODUCTOS_CUALIDAD = "cualidad";
+	public static final String PRODUCTOS_UNIDAD_V = "unidad_v";
+	public static final String PRODUCTOS_PRECIO_V = "precio_v";
+	public static final String PRODUCTOS_UNIDAD_C = "unidad_c";
+	public static final String PRODUCTOS_PRECIO_C = "precio_c";
+	public static final String PRODUCTOS_STOCK = "stock";
+	public static final String PRODUCTOS_MINIMO = "minimo";
+	public static final String PRODUCTOS_ID_PROVEEDOR = "id_proveedor";
+	public static final String PRODUCTOS_ID_COMBO = "id_combo";
+	public static final String PRODUCTOS_PRECIO_COMBO = "precio_combo";
+	public static final String PRODUCTOS_FIREBASE = "firebase";
+	public static final String PRODUCTOS_ESTADO = "estado";
 	//public static final Integer N_PROD = 5;
-
 	public static final String CREAR_TABLA_PRODUCTOS = "CREATE TABLE "+
-	TABLA_PRODUCTOS+"("+
-	COL_ID_PROD+" TEXT,"+
-	COL_LINEA_PROD+" TEXT,"+
-	COL_NOMBRE_PROD+" TEXT,"+
-	COL_CUALIDAD_PROD+" TEXT,"+
-	COL_UNIDAD_V_PROD+" TEXT,"+
-	COL_PRECIO_V_PROD+" TEXT,"+
-	COL_UNIDAD_C_PROD+" TEXT,"+
-	COL_PRECIO_C_PROD+" TEXT,"+
-	COL_STOCK_PROD+" TEXT,"+
-	COL_MINIMO_PROD+" TEXT,"+
-	COL_ID_PROVEEDOR_PROD+" TEXT,"+
-	COL_ID_COMBO_PROD+" TEXT,"+
-	COL_PRECIO_COMBO_PROD+" TEXT,"+
-	COL_ESTADO_PROD+" TEXT"+")";
+	PRODUCTOS+"("+
+	PRODUCTOS_ID+" TEXT,"+
+	PRODUCTOS_LINEA+" TEXT,"+
+	PRODUCTOS_NOMBRE+" TEXT,"+
+	PRODUCTOS_CUALIDAD+" TEXT,"+
+	PRODUCTOS_UNIDAD_V+" TEXT,"+
+	PRODUCTOS_PRECIO_V+" TEXT,"+
+	PRODUCTOS_UNIDAD_C+" TEXT,"+
+	PRODUCTOS_PRECIO_C+" TEXT,"+
+	PRODUCTOS_STOCK+" TEXT,"+
+	PRODUCTOS_MINIMO+" TEXT,"+
+	PRODUCTOS_ID_PROVEEDOR+" TEXT,"+
+	PRODUCTOS_ID_COMBO+" TEXT,"+
+	PRODUCTOS_PRECIO_COMBO+" TEXT,"+
+	PRODUCTOS_FIREBASE+" TEXT,"+
+	PRODUCTOS_ESTADO+" TEXT"+")";
 
 	//*** Entidad Transitoria ***
-	public static final String TABLA_TRANSITORIA = "transitoria";
-	public static final String COL_PROFORMA_TRANS = "proforma";
-	public static final String COL_ID_PROD_TRANS = "id_producto";
-	public static final String COL_ID_CLIE_PROV_TRANS = "id_clie_prov";
-	public static final String COL_ID_USU_TRANS = "id_usuario";
-	public static final String COL_CANTIDAD_TRANS = "cantidad";
-	public static final String COL_PRECIO_TRANS = "precio";
-	public static final String COL_FECHA_TRANS = "fecha";
-	public static final String COL_SALDO_TRANS = "saldo";
+	public static final String TRANSITORIA = "transitoria";
+	public static final String TRANSITORIA_ID_TRANSACCION = "id_transaccion";
+	public static final String TRANSITORIA_PROFORMA = "proforma";
+	public static final String TRANSITORIA_ID_PROD = "id_producto";
+	public static final String TRANSITORIA_ID_CLIE_PROV = "id_clie_prov";
+	public static final String TRANSITORIA_ID_USU = "id_usuario";
+	public static final String TRANSITORIA_CANTIDAD = "cantidad";
+	public static final String TRANSITORIA_PRECIO = "precio";
+	public static final String TRANSITORIA_FECHA = "fecha";
+	public static final String TRANSITORIA_SALDO = "saldo";
+	public static final String TRANSITORIA_FIREBASE = "firebase";
 	//public static final Integer N_TRANS = 5;
 	public static final String CREAR_TABLA_TRANSITORIA = "CREATE TABLE "+
-	TABLA_TRANSITORIA+"("+
-	COL_PROFORMA_TRANS+" TEXT,"+
-	COL_ID_PROD_TRANS+" TEXT,"+
-	COL_ID_CLIE_PROV_TRANS+" TEXT,"+
-	COL_ID_USU_TRANS+" TEXT,"+
-	COL_CANTIDAD_TRANS+" TEXT,"+
-	COL_PRECIO_TRANS+" TEXT,"+
-	COL_FECHA_TRANS+" TEXT,"+
-	COL_SALDO_TRANS+" TEXT)";
+	TRANSITORIA+"("+
+	TRANSITORIA_ID_TRANSACCION+" TEXT,"+
+	TRANSITORIA_PROFORMA+" TEXT,"+
+	TRANSITORIA_ID_PROD+" TEXT,"+
+	TRANSITORIA_ID_CLIE_PROV+" TEXT,"+
+	TRANSITORIA_ID_USU+" TEXT,"+
+	TRANSITORIA_CANTIDAD+" TEXT,"+
+	TRANSITORIA_PRECIO+" TEXT,"+
+	TRANSITORIA_FECHA+" TEXT,"+
+	TRANSITORIA_SALDO+" TEXT,"+
+	TRANSITORIA_FIREBASE+" TEXT)";
 
 	//*** Entidad ventas ***
-	public static final String TABLA_VENTAS = "ventas";
-	public static final String COL_PROFORMA_VENT = "proforma";
-	public static final String COL_ID_PROD_VENT = "id_producto";
-	public static final String COL_ID_CLIE_VENT = "id_cliente";
-	public static final String COL_ID_USU_VENT = "id_usuario";
-	public static final String COL_CANTIDAD_VENT = "cantidad";
-	public static final String COL_PRECIO_VENT = "precio";
-	public static final String COL_FECHA_VENT = "fecha";
-	public static final String COL_SALDO_VENT = "saldo";
-	
+	public static final String VENTAS = "ventas";
+	public static final String VENTAS_ID_VENTA = "id_venta";
+	public static final String VENTAS_PROFORMA = "proforma";
+	public static final String VENTAS_ID_PROD = "id_producto";
+	public static final String VENTAS_ID_CLIE = "id_cliente";
+	public static final String VENTAS_ID_USU = "id_usuario";
+	public static final String VENTAS_CANTIDAD = "cantidad";
+	public static final String VENTAS_PRECIO = "precio";
+	public static final String VENTAS_FECHA = "fecha";
+	public static final String VENTAS_SALDO = "saldo";
+	public static final String VENTAS_FIREBASE = "firebase";
 	//public static final Integer N_VENT = 5;
-
 	public static final String CREAR_TABLA_VENTAS = "CREATE TABLE "+
-	TABLA_VENTAS+"("+
-	COL_PROFORMA_VENT+" TEXT,"+
-	COL_ID_PROD_VENT+" TEXT,"+
-	COL_ID_CLIE_VENT+" TEXT,"+
-	COL_ID_USU_VENT+" TEXT,"+
-	COL_CANTIDAD_VENT+" TEXT,"+
-	COL_PRECIO_VENT+" TEXT,"+
-	COL_FECHA_VENT+" TEXT,"+
-	COL_SALDO_VENT+" TEXT)";
+	VENTAS+"("+
+	VENTAS_ID_VENTA+" TEXT,"+
+	VENTAS_PROFORMA+" TEXT,"+
+	VENTAS_ID_PROD+" TEXT,"+
+	VENTAS_ID_CLIE+" TEXT,"+
+	VENTAS_ID_USU+" TEXT,"+
+	VENTAS_CANTIDAD+" TEXT,"+
+	VENTAS_PRECIO+" TEXT,"+
+	VENTAS_FECHA+" TEXT,"+
+	VENTAS_SALDO+" TEXT,"+
+	VENTAS_FIREBASE+" TEXT)";
 
 	//*** Entidad compras ***
-	public static final String TABLA_COMPRAS = "compras";
-	public static final String COL_PROFORMA_COMP = "proforma";
-	public static final String COL_ID_PROD_COMP = "id_producto";
-	public static final String COL_ID_PROV_COMP = "id_proveedor";
-	public static final String COL_ID_USU_COMP = "id_usuario";
-	public static final String COL_CANTIDAD_COMP = "cantidad";
-	public static final String COL_PRECIO_COMP = "precio";
-	public static final String COL_FECHA_COMP = "fecha";
-	public static final String COL_SALDO_COMP = "saldo";
+	public static final String COMPRAS = "compras";
+	public static final String COMPRAS_ID_COMPRA = "id_compra";
+	public static final String COMPRAS_PROFORMA = "proforma";
+	public static final String COMPRAS_ID_PROD = "id_producto";
+	public static final String COMPRAS_ID_PROV = "id_proveedor";
+	public static final String COMPRAS_ID_USU = "id_usuario";
+	public static final String COMPRAS_CANTIDAD = "cantidad";
+	public static final String COMPRAS_PRECIO = "precio";
+	public static final String COMPRAS_FECHA = "fecha";
+	public static final String COMPRAS_SALDO = "saldo";
+	public static final String COMPRAS_FIREBASE = "firebase";
 	//public static final String COL_FECHA_NEW_COMP = "fecha_new_comp";
-	//public static final Integer N_COMP = 5;
-
 	public static final String CREAR_TABLA_COMPRAS = "CREATE TABLE "+
-	TABLA_COMPRAS+"("+
-	COL_PROFORMA_COMP+" TEXT,"+
-	COL_ID_PROD_COMP+" TEXT,"+
-	COL_ID_PROV_COMP+" TEXT,"+
-	COL_ID_USU_COMP+" TEXT,"+
-	COL_CANTIDAD_COMP+" TEXT,"+
-	COL_PRECIO_COMP+" TEXT,"+
-	COL_FECHA_COMP+" TEXT,"+
-	COL_SALDO_COMP+" TEXT)";
+	COMPRAS+"("+
+	COMPRAS_ID_COMPRA+" TEXT,"+
+	COMPRAS_PROFORMA+" TEXT,"+
+	COMPRAS_ID_PROD+" TEXT,"+
+	COMPRAS_ID_PROV+" TEXT,"+
+	COMPRAS_ID_USU+" TEXT,"+
+	COMPRAS_CANTIDAD+" TEXT,"+
+	COMPRAS_PRECIO+" TEXT,"+
+	COMPRAS_FECHA+" TEXT,"+
+	COMPRAS_SALDO+" TEXT,"+
+	COMPRAS_FIREBASE+" TEXT)";
 
 	//*** Tabla Kardex ***
-	public static final String TABLA_KARDEX = "kardex";
-	public static final String COL_FECHA_KARD = "fecha";
-	public static final String COL_PROFORMA_KARD = "proforma";
-	public static final String COL_DETALLE_KARD = "detalle";
-	public static final String COL_ENTRADA_KARD = "entrada";
-	public static final String COL_SALIDA_KARD = "salida";
-	public static final String COL_SALDO_KARD = "saldo";
+	public static final String KARDEX = "kardex";
+	public static final String KARDEX_FECHA = "fecha";
+	public static final String KARDEX_PROFORMA = "proforma";
+	public static final String KARDEX_DETALLE = "detalle";
+	public static final String KARDEX_ENTRADA = "entrada";
+	public static final String KARDEX_SALIDA = "salida";
+	public static final String KARDEX_SALDO = "saldo";
+	public static final String KARDEX_FIREBASE = "firebase";
 	//public static final Integer N_KARD = 6;
 	public static final String CREAR_TABLA_KARDEX = "CREATE TABLE "+
-	TABLA_KARDEX+"("+
-	COL_FECHA_KARD+" TEXT,"+
-	COL_PROFORMA_KARD+" TEXT,"+
-	COL_DETALLE_KARD+" TEXT,"+
-	COL_ENTRADA_KARD+" TEXT,"+
-	COL_SALIDA_KARD+" TEXT,"+
-	COL_SALDO_KARD+" TEXT)";
+	KARDEX+"("+
+	KARDEX_FECHA+" TEXT,"+
+	KARDEX_PROFORMA+" TEXT,"+
+	KARDEX_DETALLE+" TEXT,"+
+	KARDEX_ENTRADA+" TEXT,"+
+	KARDEX_SALIDA+" TEXT,"+
+	KARDEX_SALDO+" TEXT,"+
+	KARDEX_FIREBASE+" TEXT)";
 
-	//*** Tabla Kardex ***
-	public static final String TABLA_COMBOS = "combos";
-	public static final String COL_ID_COMB = "id";
-	public static final String COL_NOMBRE_COMB = "nombre";
-	public static final String COL_ID_PROD_COMB = "id_producto";
-	public static final String COL_PRECIO_COMB = "precio";
-	public static final String COL_ESTADO_COMB = "estado";
+	//*** Tabla Combos ***
+	public static final String COMBOS = "combos";
+	public static final String COMBOS_ID = "id";
+	public static final String COMBOS_NOMBRE = "nombre";
+	public static final String COMBOS_ID_PROD = "id_producto";
+	public static final String COMBOS_PRECIO = "precio";
+	public static final String COMBOS_FIREBASE = "firebase";
+	public static final String COMBOS_ESTADO = "estado";
 	//public static final Integer N_KARD = 6;
 	public static final String CREAR_TABLA_COMBOS = "CREATE TABLE "+
-	TABLA_COMBOS+"("+
-	COL_ID_COMB+" TEXT,"+
-	COL_NOMBRE_COMB+" TEXT,"+
-	COL_ID_PROD_COMB+" TEXT,"+
-	COL_PRECIO_COMB+" TEXT,"+
-	COL_ESTADO_COMB+" TEXT)";
+	COMBOS+"("+
+	COMBOS_ID+" TEXT,"+
+	COMBOS_NOMBRE+" TEXT,"+
+	COMBOS_ID_PROD+" TEXT,"+
+	COMBOS_PRECIO+" TEXT,"+
+	COMBOS_FIREBASE+" TEXT,"+
+	COMBOS_ESTADO+" TEXT)";
+	
+	//*** Tabla Control id ***
+	public static final String CONTROL = "control";
+	public static final String CONTROL_USU= "usu";
+	public static final String CONTROL_CLIE = "clie";
+	public static final String CONTROL_PROV = "prov";
+	public static final String CONTROL_PROD = "prod";
+	public static final String CONTROL_COMB = "comb";
+	public static final String CONTROL_FIREBASE = "firebase";
+	//public static final Integer N_KARD = 6;
+	public static final String CREAR_TABLA_CONTROL = "CREATE TABLE "+
+	CONTROL+"("+
+	CONTROL_USU+" TEXT,"+
+	CONTROL_CLIE+" TEXT,"+
+	CONTROL_PROV+" TEXT,"+
+	CONTROL_PROD+" TEXT,"+
+	CONTROL_COMB+" TEXT,"+
+	CONTROL_FIREBASE+" TEXT)";
 	
 }

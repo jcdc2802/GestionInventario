@@ -27,15 +27,15 @@ public class ConexionSqlite extends SQLiteOpenHelper
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int p2, int p3)
 	{
-		db.execSQL("DROP TABLE IF EXISTS "+Tablas.TABLA_USUARIOS);
-		db.execSQL("DROP TABLE IF EXISTS "+Tablas.TABLA_CLIENTES);
-		db.execSQL("DROP TABLE IF EXISTS "+Tablas.TABLA_PROVEEDORES);
-		db.execSQL("DROP TABLE IF EXISTS "+Tablas.TABLA_PRODUCTOS);
-		db.execSQL("DROP TABLE IF EXISTS "+Tablas.TABLA_TRANSITORIA);
-		db.execSQL("DROP TABLE IF EXISTS "+Tablas.TABLA_VENTAS);
-		db.execSQL("DROP TABLE IF EXISTS "+Tablas.TABLA_COMPRAS);
-		db.execSQL("DROP TABLE IF EXISTS "+Tablas.TABLA_KARDEX);
-		db.execSQL("DROP TABLE IF EXISTS "+Tablas.TABLA_COMBOS);
+		db.execSQL("DROP TABLE IF EXISTS "+Tablas.USUARIOS);
+		db.execSQL("DROP TABLE IF EXISTS "+Tablas.CLIENTES);
+		db.execSQL("DROP TABLE IF EXISTS "+Tablas.PROVEEDORES);
+		db.execSQL("DROP TABLE IF EXISTS "+Tablas.PRODUCTOS);
+		db.execSQL("DROP TABLE IF EXISTS "+Tablas.TRANSITORIA);
+		db.execSQL("DROP TABLE IF EXISTS "+Tablas.VENTAS);
+		db.execSQL("DROP TABLE IF EXISTS "+Tablas.COMPRAS);
+		db.execSQL("DROP TABLE IF EXISTS "+Tablas.KARDEX);
+		db.execSQL("DROP TABLE IF EXISTS "+Tablas.COMBOS);
 		onCreate(db);
 	}
 	

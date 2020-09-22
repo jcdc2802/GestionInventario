@@ -76,7 +76,7 @@ public class Proveedores extends AppCompatActivity implements OnClickListener
 			
 			try{
 
-				boolean vacia = metCrud.tablaVacia(Tablas.TABLA_PROVEEDORES);
+				boolean vacia = metCrud.tablaVacia(Tablas.PROVEEDORES);
 
 				if(vacia){
 
@@ -87,16 +87,16 @@ public class Proveedores extends AppCompatActivity implements OnClickListener
 					
 					
 					ContentValues registro = new ContentValues();
-					registro.put(Tablas.COL_ID_PROV,datosProv.get(0));
-					registro.put(Tablas.COL_EMPRESA_PROV,datosProv.get(1));
-					registro.put(Tablas.COL_TELEFONO_PROV,datosProv.get(2));
-					registro.put(Tablas.COL_PROMOTOR_PROV,datosProv.get(3));
-					registro.put(Tablas.COL_CELULAR_PROV,datosProv.get(4));
-					registro.put(Tablas.COL_MAIL_PROV,datosProv.get(5));
-					registro.put(Tablas.COL_ESTADO_PROV,datosProv.get(6));
+					registro.put(Tablas.PROVEEDORES_ID,datosProv.get(0));
+					registro.put(Tablas.PROVEEDORES_EMPRESA,datosProv.get(1));
+					registro.put(Tablas.PROVEEDORES_TELEFONO,datosProv.get(2));
+					registro.put(Tablas.PROVEEDORES_PROMOTOR,datosProv.get(3));
+					registro.put(Tablas.PROVEEDORES_CELULAR,datosProv.get(4));
+					registro.put(Tablas.PROVEEDORES_MAIL,datosProv.get(5));
+					registro.put(Tablas.PROVEEDORES_ESTADO,datosProv.get(6));
 
 					db = conectar.getWritableDatabase();
-					db.insert(Tablas.TABLA_PROVEEDORES,null,registro);
+					db.insert(Tablas.PROVEEDORES,null,registro);
 					db.close();
 				}
 
