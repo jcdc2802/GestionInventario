@@ -6,15 +6,123 @@
 	android:orientation="vertical">
 
 	<TextView
-		android:text="proveedores"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"/>
+		android:text="Codigo Proveedor"
+		android:textSize="20sp"
+		android:gravity="center_horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="40dp"
+		android:textColor="#FFFFFF"
+		android:background="#0972B5"
+		android:id="@+id/tvIdProv"/>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="vertical">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<EditText
+				android:id="@+id/etEmpProv"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:inputType="textCapWords"
+				android:hint="Nombre de Empresa"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<EditText
+				android:id="@+id/etTelefProv"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:inputType="phone"
+				android:hint="Telefono de Empresa"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<EditText
+				android:id="@+id/etPromProv"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:inputType="textCapWords"
+				android:hint="Promotor"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<EditText
+				android:id="@+id/etCelProv"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:inputType="phone"
+				android:hint="Celular"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<EditText
+				android:id="@+id/etMailProv"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:inputType="textEmailAddress"
+				android:hint="Mail"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<TextView
+				android:text="estado"
+				android:layout_weight="2"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:textColor="#000000"/>
+
+			<Spinner
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:id="@+id/spnEstadoProv"
+				android:layout_weight="3"/>
+
+		</LinearLayout>
+
+	</LinearLayout>
 
 	<Button
-		android:text="Prueba tabla vacia"
-		android:layout_width="wrap_content"
+		android:text="Guardar"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:id="@+id/btnPrueba"/>
+		android:id="@+id/btnGuardarProv"/>
+
+	<ScrollView
+		android:layout_height="match_parent"
+		android:layout_width="match_parent">
+
+	</ScrollView>
 
 </LinearLayout>
 

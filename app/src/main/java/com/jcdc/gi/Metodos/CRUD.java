@@ -57,7 +57,18 @@ public class CRUD extends AppCompatActivity
 		return true;
 	}
 	
-	public void guardar(){
+	public void guardar(ArrayList<String> datProv,String tabla){
+		
+		/*
+		ContentValues registro = new ContentValues();
+		
+		registro.put(Utilidades.COL_ID_PROD,arrayRegistro.get(0));
+		registro.put(Utilidades.COL_LINEA_PROD,arrayRegistro.get(1));
+		
+
+		db = conectar.getWritableDatabase();
+		db.insert(Utilidades.TABLA_PRODUCTOS,null,registro);
+		db.close();*/
 		
 		
 	}
