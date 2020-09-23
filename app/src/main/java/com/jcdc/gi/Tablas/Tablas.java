@@ -226,6 +226,7 @@ public class Tablas
 	
 	//*** Tabla Control id ***
 	public static final String CONTROL = "control";
+	public static final String CONTROL_ID= "id";
 	public static final String CONTROL_USU= "usu";
 	public static final String CONTROL_CLIE = "clie";
 	public static final String CONTROL_PROV = "prov";
@@ -235,6 +236,7 @@ public class Tablas
 	//public static final Integer N_KARD = 6;
 	public static final String CREAR_TABLA_CONTROL = "CREATE TABLE "+
 	CONTROL+"("+
+	CONTROL_ID+" TEXT,"+
 	CONTROL_USU+" TEXT,"+
 	CONTROL_CLIE+" TEXT,"+
 	CONTROL_PROV+" TEXT,"+

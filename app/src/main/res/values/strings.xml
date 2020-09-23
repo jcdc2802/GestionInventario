@@ -3,5 +3,13 @@
 
     <string name="app_name">GestionInventario</string>
     <string name="hello_world">Hello world!</string>
+	
+	<string-array name="actividad">
+		<item>Activo</item>
+		<item>Inactivo</item>
+	</string-array>
+	
+	<string name="activo">Activo</string>
+	<string name="inactivo">Inactivo</string>
 
 </resources>

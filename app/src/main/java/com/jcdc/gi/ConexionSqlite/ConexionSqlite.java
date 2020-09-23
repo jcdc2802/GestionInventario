@@ -22,6 +22,7 @@ public class ConexionSqlite extends SQLiteOpenHelper
 		db.execSQL(Tablas.CREAR_TABLA_COMPRAS);
 		db.execSQL(Tablas.CREAR_TABLA_KARDEX);
 		db.execSQL(Tablas.CREAR_TABLA_COMBOS);
+		db.execSQL(Tablas.CREAR_TABLA_CONTROL);
 	}
 
 	@Override
@@ -36,6 +37,7 @@ public class ConexionSqlite extends SQLiteOpenHelper
 		db.execSQL("DROP TABLE IF EXISTS "+Tablas.COMPRAS);
 		db.execSQL("DROP TABLE IF EXISTS "+Tablas.KARDEX);
 		db.execSQL("DROP TABLE IF EXISTS "+Tablas.COMBOS);
+		db.execSQL("DROP TABLE IF EXISTS "+Tablas.CONTROL);
 		onCreate(db);
 	}
 	
