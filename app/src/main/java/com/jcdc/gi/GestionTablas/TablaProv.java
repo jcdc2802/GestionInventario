@@ -1,95 +1,25 @@
 package com.jcdc.gi.GestionTablas;
-import android.content.*;
-import android.database.*;
-import android.database.sqlite.*;
 import android.os.*;
 import android.support.v7.app.*;
 import android.view.*;
-import android.view.View.*;
 import android.widget.*;
-import com.jcdc.gi.*;
-import com.jcdc.gi.ConexionSqlite.*;
-import com.jcdc.gi.Metodos.*;
-import com.jcdc.gi.Tablas.*;
-import java.util.*;
 import android.widget.AdapterView.*;
+import com.jcdc.gi.*;
 
-public class Proveedores extends AppCompatActivity implements OnItemSelectedListener
+public class TablaProv extends AppCompatActivity implements OnItemSelectedListener
 {
-	ConexionSqlite conectar = new ConexionSqlite(this);
-	SQLiteDatabase db;
-	Cursor c;
-	
-	//Button btnGuardarProv;
-	EditText etEmpProv,etTelefProv,etPromProv;
-	EditText etCelProv,etMailProv;
-	TextView tvIdProv;
-	ArrayList<String> datosProv;
-	
-	//spinner estado
-	Spinner spnEstado;
-	ArrayList<String> arrayEstado;
-	
-	
-	CRUD metCrud = new CRUD(this);
-	Metodos metodo = new Metodos(this);
-	
-	//Proveedor datosProv = new Proveedor("","","","","","","");
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		// TODO: Implement this method
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.proveedores);
-		
-		datosProv = new ArrayList<>();
-		
-		//btnGuardarProv = findViewById(R.id.btnGuardarProv);
-		etEmpProv = findViewById(R.id.etEmpProv);
-		etTelefProv = findViewById(R.id.etTelefProv);
-		etPromProv = findViewById(R.id.etPromProv);
-		etCelProv = findViewById(R.id.etCelProv);
-		etMailProv = findViewById(R.id.etMailProv);
-		tvIdProv = findViewById(R.id.tvIdProv);
-		
-		//btnGuardarProv.setOnClickListener(this);
-		
-		//Spinner Estado
-		arrayEstado = new ArrayList<>();
-		arrayEstado.add("activo");
-		arrayEstado.add("inactivo");
-		spnEstado = findViewById(R.id.spnEstadoProv);
-		ArrayAdapter<CharSequence> adapEstado = ArrayAdapter.createFromResource(
-			this,
-			R.array.actividad,
-			R.layout.spinner_modelo);
-		spnEstado.setAdapter(adapEstado);
-		spnEstado.setOnItemSelectedListener(this);
-		
-		tvIdProv.setText("Prov"+numId());
-		
+		setContentView(R.layout.tabla_proveedores);
 		
 	}
 	
 	
-	
-	
-	public Boolean tablaVacia(String tabla){
 
-		Boolean vacio = false;
-		db = conectar.getReadableDatabase();
-		c = db.query(tabla,null,null,null,null,null,null);
-		if(c.moveToFirst()){vacio = true;}
-		c.close();
-		db.close();
-
-		return vacio;
-	}
-	
-	
-	
-	
 	@Override
 	public void onItemSelected(AdapterView<?> p1, View p2, int p3, long p4)
 	{
@@ -101,35 +31,6 @@ public class Proveedores extends AppCompatActivity implements OnItemSelectedList
 	{
 		// TODO: Implement this method
 	}
-	
-	
-	public Integer numId(){
-		
-		String str = "";
-		int num = 1;
-		
-		db = conectar.getReadableDatabase();
-		c = db.query(Tablas.CONTROL,null,null,null,null,null,null);
-		if(c.moveToFirst()){
-			str = c.getString(3);
-		}
-		c.close();
-		db.close();
-		
-		num = Integer.parseInt(str);
-		
-		return num;
-	}
-	
-	public void limpiar(){
-		
-		etEmpProv.setText("");
-		etTelefProv.setText("");
-		etPromProv.setText("");
-		etCelProv.setText("");
-		etMailProv.setText("");
-	}
-	
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
@@ -151,9 +52,9 @@ public class Proveedores extends AppCompatActivity implements OnItemSelectedList
 		switch (item.getItemId()) 
 		{
 			case R.id.itmNuevo:
-				
+
 				/*
-				
+
 				 boolean datoNulo = false;
 
 				 datosProv.clear();
@@ -220,14 +121,14 @@ public class Proveedores extends AppCompatActivity implements OnItemSelectedList
 				 }catch(Exception e){metodo.msg("Tabla vacia "+e.toString());}
 
 				 }
-				
-				*/
-				
+
+				 */
+
 				break;
 		}
-		
+
 		return super.onOptionsItemSelected(item);
-		
+
 	}
 	
 }

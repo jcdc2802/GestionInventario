@@ -3,8 +3,8 @@
     tools:context=".Main" >
 
 	<item 
-		android:id="@+id/itmGuardar"
-        android:title="Guardar"
+		android:id="@+id/itmNuevo"
+		android:title="Nuevo"
         android:orderInCategory="1"
         android:showAsAction="ifRoom" />
 

@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
 		
 		try{
 			
-			Intent prov = new Intent(this,com.jcdc.gi.GestionTablas.Proveedores.class);
+			Intent prov = new Intent(this,com.jcdc.gi.GestionTablas.TablaProv.class);
 			startActivity(prov);
 			
 		}catch(Exception e){metodo.msg("error"+" "+e.toString());}

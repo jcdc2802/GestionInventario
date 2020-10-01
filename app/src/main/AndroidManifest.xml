@@ -20,6 +20,9 @@
 		<activity
             android:name=".GestionTablas.Proveedores">
 		</activity>
+		<activity
+            android:name=".GestionTablas.TablaProv">
+		</activity>
     </application>
 
 </manifest>
