@@ -14,13 +14,13 @@ import com.jcdc.gi.Tablas.*;
 import java.util.*;
 import android.widget.AdapterView.*;
 
-public class Proveedores extends AppCompatActivity implements OnClickListener, OnItemSelectedListener
+public class Proveedores extends AppCompatActivity implements OnItemSelectedListener
 {
 	ConexionSqlite conectar = new ConexionSqlite(this);
 	SQLiteDatabase db;
 	Cursor c;
 	
-	Button btnGuardarProv;
+	//Button btnGuardarProv;
 	EditText etEmpProv,etTelefProv,etPromProv;
 	EditText etCelProv,etMailProv;
 	TextView tvIdProv;
@@ -45,7 +45,7 @@ public class Proveedores extends AppCompatActivity implements OnClickListener, O
 		
 		datosProv = new ArrayList<>();
 		
-		btnGuardarProv = findViewById(R.id.btnGuardarProv);
+		//btnGuardarProv = findViewById(R.id.btnGuardarProv);
 		etEmpProv = findViewById(R.id.etEmpProv);
 		etTelefProv = findViewById(R.id.etTelefProv);
 		etPromProv = findViewById(R.id.etPromProv);
@@ -53,7 +53,7 @@ public class Proveedores extends AppCompatActivity implements OnClickListener, O
 		etMailProv = findViewById(R.id.etMailProv);
 		tvIdProv = findViewById(R.id.tvIdProv);
 		
-		btnGuardarProv.setOnClickListener(this);
+		//btnGuardarProv.setOnClickListener(this);
 		
 		//Spinner Estado
 		arrayEstado = new ArrayList<>();
@@ -72,80 +72,7 @@ public class Proveedores extends AppCompatActivity implements OnClickListener, O
 		
 	}
 	
-	@Override
-	public void onClick(View p1)
-	{
-		boolean datoNulo = false;
-		
-		datosProv.clear();
-		datosProv.add("Prov"+numId());
-		datosProv.add(etEmpProv.getText().toString());
-		datosProv.add(etTelefProv.getText().toString());
-		datosProv.add(etPromProv.getText().toString());
-		datosProv.add(etCelProv.getText().toString());
-		datosProv.add(etMailProv.getText().toString());
-		datosProv.add("guardar");
-		datosProv.add(spnEstado.getSelectedItem().toString());
-		
-		for(int i=0;i<datosProv.size();i++){
-			
-			if(datosProv.get(i).equals("")){datoNulo = true;}
-		}
-		
-		if(datoNulo){
-			
-			metodo.msg("Algun dato es nulo");
-		}else{
-			
-			try{
-
-				boolean vacia = metCrud.tablaVacia(Tablas.PROVEEDORES);
-
-				if(vacia){
-
-					metodo.msg("tabla con registros");
-				}else{
-
-					metodo.msg("tabla vacia");
-					
-					
-					ContentValues registro = new ContentValues();
-					registro.put(Tablas.PROVEEDORES_ID,datosProv.get(0));
-					registro.put(Tablas.PROVEEDORES_EMPRESA,datosProv.get(1));
-					registro.put(Tablas.PROVEEDORES_TELEFONO,datosProv.get(2));
-					registro.put(Tablas.PROVEEDORES_PROMOTOR,datosProv.get(3));
-					registro.put(Tablas.PROVEEDORES_CELULAR,datosProv.get(4));
-					registro.put(Tablas.PROVEEDORES_MAIL,datosProv.get(5));
-					registro.put(Tablas.PROVEEDORES_FIREBASE,datosProv.get(6));
-					registro.put(Tablas.PROVEEDORES_ESTADO,datosProv.get(7));
-
-					db = conectar.getWritableDatabase();
-					db.insert(Tablas.PROVEEDORES,null,registro);
-					db.close();
-					
-					int n = numId()+1;
-					String s = String.valueOf(n);
-					String[] compa = {"id"};
-					registro.clear();
-					registro.put(Tablas.CONTROL_PROV,s);
-					db = conectar.getWritableDatabase();
-					db.update(Tablas.CONTROL,registro,Tablas.CONTROL_ID+"=?",compa);
-					db.close();
-					
-					metodo.msg("datos guardados");
-					
-					limpiar();
-				}
-
-
-			}catch(Exception e){metodo.msg("Tabla vacia "+e.toString());}
-			
-		}
-		
 	
-		
-		
-	}
 	
 	
 	public Boolean tablaVacia(String tabla){
@@ -201,6 +128,106 @@ public class Proveedores extends AppCompatActivity implements OnClickListener, O
 		etPromProv.setText("");
 		etCelProv.setText("");
 		etMailProv.setText("");
+	}
+	
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu)
+	{
+		getMenuInflater().inflate(R.menu.menu_edicion, menu);
+
+		MenuItem item = menu.findItem(R.id.itmEliminar);
+		//if(strProd.equals("nuevo")){item.setVisible(false);}
+
+        return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		//arrayRegistro.clear();
+		Boolean flat = true;
+
+		switch (item.getItemId()) 
+		{
+			case R.id.itmGuardar:
+				
+				/*
+				
+				 boolean datoNulo = false;
+
+				 datosProv.clear();
+				 datosProv.add("Prov"+numId());
+				 datosProv.add(etEmpProv.getText().toString());
+				 datosProv.add(etTelefProv.getText().toString());
+				 datosProv.add(etPromProv.getText().toString());
+				 datosProv.add(etCelProv.getText().toString());
+				 datosProv.add(etMailProv.getText().toString());
+				 datosProv.add("guardar");
+				 datosProv.add(spnEstado.getSelectedItem().toString());
+
+				 for(int i=0;i<datosProv.size();i++){
+
+				 if(datosProv.get(i).equals("")){datoNulo = true;}
+				 }
+
+				 if(datoNulo){
+
+				 metodo.msg("Algun dato es nulo");
+				 }else{
+
+				 try{
+
+				 boolean vacia = metCrud.tablaVacia(Tablas.PROVEEDORES);
+
+				 if(vacia){
+
+				 metodo.msg("tabla con registros");
+				 }else{
+
+				 metodo.msg("tabla vacia");
+
+
+				 ContentValues registro = new ContentValues();
+				 registro.put(Tablas.PROVEEDORES_ID,datosProv.get(0));
+				 registro.put(Tablas.PROVEEDORES_EMPRESA,datosProv.get(1));
+				 registro.put(Tablas.PROVEEDORES_TELEFONO,datosProv.get(2));
+				 registro.put(Tablas.PROVEEDORES_PROMOTOR,datosProv.get(3));
+				 registro.put(Tablas.PROVEEDORES_CELULAR,datosProv.get(4));
+				 registro.put(Tablas.PROVEEDORES_MAIL,datosProv.get(5));
+				 registro.put(Tablas.PROVEEDORES_FIREBASE,datosProv.get(6));
+				 registro.put(Tablas.PROVEEDORES_ESTADO,datosProv.get(7));
+
+				 db = conectar.getWritableDatabase();
+				 db.insert(Tablas.PROVEEDORES,null,registro);
+				 db.close();
+
+				 int n = numId()+1;
+				 String s = String.valueOf(n);
+				 String[] compa = {"id"};
+				 registro.clear();
+				 registro.put(Tablas.CONTROL_PROV,s);
+				 db = conectar.getWritableDatabase();
+				 db.update(Tablas.CONTROL,registro,Tablas.CONTROL_ID+"=?",compa);
+				 db.close();
+
+				 metodo.msg("datos guardados");
+
+				 limpiar();
+				 }
+
+
+				 }catch(Exception e){metodo.msg("Tabla vacia "+e.toString());}
+
+				 }
+				
+				*/
+				
+				break;
+		}
+		
+		return super.onOptionsItemSelected(item);
+		
 	}
 	
 }

@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Main" >
+
+	<item 
+		android:id="@+id/itmGuardar"
+        android:title="Guardar"
+        android:orderInCategory="1"
+        android:showAsAction="ifRoom" />
+
+	<item 
+		android:id="@+id/itmEliminar"
+        android:title="Eliminar"
+        android:orderInCategory="2"
+        android:showAsAction="ifRoom" />
+
+	<item 
+		android:id="@+id/itmVolver"
+		
+        android:title="Volver"
+        android:orderInCategory="3"
+        android:showAsAction="ifRoom" />
+    
+</menu>
