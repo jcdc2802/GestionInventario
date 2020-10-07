@@ -136,7 +136,7 @@ public class Proveedores extends AppCompatActivity implements OnItemSelectedList
 	{
 		getMenuInflater().inflate(R.menu.menu_edicion, menu);
 
-		MenuItem item = menu.findItem(R.id.itmEliminar);
+		MenuItem item = menu.findItem(R.id.itmEditar);
 		//if(strProd.equals("nuevo")){item.setVisible(false);}
 
         return true;
@@ -223,6 +223,80 @@ public class Proveedores extends AppCompatActivity implements OnItemSelectedList
 				
 				*/
 				
+				break;
+				
+			case R.id.itmEditar:
+				/*
+				try{
+
+					Intent prov = new Intent(this,com.jcdc.gi.GestionTablas.Proveedores.class);
+					startActivity(prov);
+
+				}catch(Exception e){metodo.msg("error"+" "+e.toString());}
+				*/
+				
+				
+				/*
+				 public boolean idOk(String s)
+				 {
+				 boolean verifOk = false;
+
+				 try{
+				 tvIdProv.setText(s);
+
+				 String[] comparar = {s};
+				 String[] devolver = 
+				 {
+
+				 Tablas.PROVEEDORES_EMPRESA,
+				 Tablas.PROVEEDORES_TELEFONO,
+				 Tablas.PROVEEDORES_PROMOTOR,
+				 Tablas.PROVEEDORES_CELULAR,
+				 Tablas.PROVEEDORES_MAIL,
+				 Tablas.PROVEEDORES_FIREBASE,
+				 Tablas.PROVEEDORES_ESTADO
+
+				 };
+				 db = conectar.getReadableDatabase();
+				 c = db.query(Tablas.PROVEEDORES,devolver,Tablas.PROVEEDORES_ID+"=?",comparar,null,null,null);
+				 if(c.moveToFirst())
+				 {
+				 etNombProv.setText(c.getString(0));
+				 etTelefProv.setText(c.getString(1));
+				 etPromProv.setText(c.getString(2));
+				 etCelProv.setText(c.getString(3));
+				 etMailProv.setText(c.getString(4));
+				 spnEstado.setSelection(arrayEstado.indexOf(spnEstado.getSelectedItem().toString()));
+
+				 }else
+				 {
+				 msg(getString(R.string.id_no_existe));
+				 volver();
+				 }
+				 c.close();
+				 db.close();
+				 }
+
+				 catch(Exception e)
+				 {
+				 Toast.makeText(this,"aki "+e.toString(),Toast.LENGTH_LONG).show();
+				 }
+
+				 return verifOk;
+				 }
+				
+				*/
+				break;
+
+			case R.id.itmVolver:
+
+				try{
+
+					Intent prov = new Intent(this,com.jcdc.gi.GestionTablas.TablaProv.class);
+					startActivity(prov);
+
+				}catch(Exception e){metodo.msg("error"+" "+e.toString());}
+
 				break;
 		}
 		

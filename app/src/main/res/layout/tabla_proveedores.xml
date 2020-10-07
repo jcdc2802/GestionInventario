@@ -5,10 +5,64 @@
 	android:layout_height="fill_parent"
 	android:orientation="vertical">
 
-	<TextView
-		android:layout_width="wrap_content"
+	<TableLayout
+		android:id="@+id/tlTitulosProveedores"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:text="Tabla"/>
+		android:stretchColumns="*"
+		android:shrinkColumns="*">
+
+		<TableRow
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:background="#0972B5">
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="id_Prov"
+				android:textColor="#FFFFFF"
+				android:gravity="center"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="Empresa"
+				android:textColor="#FFFFFF"
+				android:gravity="center"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="Promotor"
+				android:textColor="#FFFFFF"
+				android:gravity="center"/>
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="Celular"
+				android:textColor="#FFFFFF"
+				android:gravity="center"/>
+
+		</TableRow>
+
+	</TableLayout>
+
+	<ScrollView
+		android:layout_height="match_parent"
+		android:layout_width="match_parent">
+
+		<TableLayout
+			android:id="@+id/tlListaProveedores"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:stretchColumns="*"
+			android:shrinkColumns="*">
+
+		</TableLayout>
+
+	</ScrollView>
 
 </LinearLayout>
 

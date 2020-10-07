@@ -9,8 +9,8 @@
         android:showAsAction="ifRoom" />
 
 	<item 
-		android:id="@+id/itmEliminar"
-        android:title="Eliminar"
+		android:id="@+id/itmEditar"
+        android:title="Editar"
         android:orderInCategory="2"
         android:showAsAction="ifRoom" />
 
