@@ -26,6 +26,8 @@ public class Proveedores extends AppCompatActivity implements OnItemSelectedList
 	TextView tvIdProv;
 	ArrayList<String> datosProv;
 	
+	String strIdProv;
+	
 	//spinner estado
 	Spinner spnEstado;
 	ArrayList<String> arrayEstado;
@@ -57,8 +59,8 @@ public class Proveedores extends AppCompatActivity implements OnItemSelectedList
 		
 		//Spinner Estado
 		arrayEstado = new ArrayList<>();
-		arrayEstado.add("activo");
-		arrayEstado.add("inactivo");
+		arrayEstado.add("Activo");
+		arrayEstado.add("Inactivo");
 		spnEstado = findViewById(R.id.spnEstadoProv);
 		ArrayAdapter<CharSequence> adapEstado = ArrayAdapter.createFromResource(
 			this,
@@ -67,7 +69,56 @@ public class Proveedores extends AppCompatActivity implements OnItemSelectedList
 		spnEstado.setAdapter(adapEstado);
 		spnEstado.setOnItemSelectedListener(this);
 		
-		tvIdProv.setText("Prov"+numId());
+		strIdProv = getIntent().getExtras().getString("strIdProv");
+		
+		if(strIdProv.equals("Nuevo")){
+			tvIdProv.setText("Prov"+numId());
+		}else{
+			tvIdProv.setText(strIdProv);
+			
+			
+			try{
+				String[] comparar = {strIdProv};
+				String[] devolver = 
+				{
+
+					Tablas.PROVEEDORES_EMPRESA,
+					Tablas.PROVEEDORES_TELEFONO,
+					Tablas.PROVEEDORES_PROMOTOR,
+					Tablas.PROVEEDORES_CELULAR,
+					Tablas.PROVEEDORES_MAIL,
+					//Tablas.PROVEEDORES_FIREBASE,
+					Tablas.PROVEEDORES_ESTADO
+
+				};
+				db = conectar.getReadableDatabase();
+				c = db.query(Tablas.PROVEEDORES,devolver,Tablas.PROVEEDORES_ID+"=?",comparar,null,null,null);
+				if(c.moveToFirst())
+				{
+					etEmpProv.setText(c.getString(0));
+					etTelefProv.setText(c.getString(1));
+					etPromProv.setText(c.getString(2));
+					etCelProv.setText(c.getString(3));
+					etMailProv.setText(c.getString(4));
+					spnEstado.setSelection(arrayEstado.indexOf(c.getString(5)));
+					//metodo.msg(c.getString(5));
+				}
+				c.close();
+				db.close();
+				
+				
+			}
+
+			catch(Exception e)
+			{
+				Toast.makeText(this,"aki "+e.toString(),Toast.LENGTH_LONG).show();
+			}
+
+			 
+			
+		}
+		
+		
 		
 		
 	}
@@ -135,9 +186,17 @@ public class Proveedores extends AppCompatActivity implements OnItemSelectedList
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
 		getMenuInflater().inflate(R.menu.menu_edicion, menu);
-
-		MenuItem item = menu.findItem(R.id.itmEditar);
-		//if(strProd.equals("nuevo")){item.setVisible(false);}
+		
+		MenuItem itemGuardar = menu.findItem(R.id.itmNuevo);
+		MenuItem itemEliminar = menu.findItem(R.id.itmEditar);
+		
+		if(strIdProv.equals("Nuevo")){
+			itemEliminar.setVisible(false);
+			itemGuardar.setTitle("Guardar");
+		}else{
+			itemGuardar.setTitle("Guardar");
+			itemEliminar.setTitle("Eliminar");
+		}
 
         return true;
 	}
@@ -151,8 +210,6 @@ public class Proveedores extends AppCompatActivity implements OnItemSelectedList
 		switch (item.getItemId()) 
 		{
 			case R.id.itmNuevo:
-				
-				/*
 				
 				 boolean datoNulo = false;
 
@@ -168,60 +225,55 @@ public class Proveedores extends AppCompatActivity implements OnItemSelectedList
 
 				 for(int i=0;i<datosProv.size();i++){
 
-				 if(datosProv.get(i).equals("")){datoNulo = true;}
+				 	if(datosProv.get(i).equals("")){datoNulo = true;}
 				 }
 
 				 if(datoNulo){
 
-				 metodo.msg("Algun dato es nulo");
+				 	metodo.msg("Algun dato es nulo");
 				 }else{
 
+				 	try{
+						 ContentValues registro = new ContentValues();
+						 registro.put(Tablas.PROVEEDORES_ID,datosProv.get(0));
+						 registro.put(Tablas.PROVEEDORES_EMPRESA,datosProv.get(1));
+						 registro.put(Tablas.PROVEEDORES_TELEFONO,datosProv.get(2));
+						 registro.put(Tablas.PROVEEDORES_PROMOTOR,datosProv.get(3));
+						 registro.put(Tablas.PROVEEDORES_CELULAR,datosProv.get(4));
+						 registro.put(Tablas.PROVEEDORES_MAIL,datosProv.get(5));
+						 registro.put(Tablas.PROVEEDORES_FIREBASE,datosProv.get(6));
+						 registro.put(Tablas.PROVEEDORES_ESTADO,datosProv.get(7));
+
+						 db = conectar.getWritableDatabase();
+						 db.insert(Tablas.PROVEEDORES,null,registro);
+						 db.close();
+
+						 int n = numId()+1;
+						 String s = String.valueOf(n);
+						 String[] compa = {"id"};
+						 registro.clear();
+						 registro.put(Tablas.CONTROL_PROV,s);
+						 db = conectar.getWritableDatabase();
+						 db.update(Tablas.CONTROL,registro,Tablas.CONTROL_ID+"=?",compa);
+						 db.close();
+
+						 metodo.msg("datos guardados");
+
+						 limpiar();
+						 
+
+				 	}catch(Exception e){metodo.msg("Tabla vacia "+e.toString());}
+
+				 }
+				 
+				
 				 try{
 
-				 boolean vacia = metCrud.tablaVacia(Tablas.PROVEEDORES);
+				 Intent prov = new Intent(this,com.jcdc.gi.GestionTablas.TablaProv.class);
+				 startActivity(prov);
 
-				 if(vacia){
-
-				 metodo.msg("tabla con registros");
-				 }else{
-
-				 metodo.msg("tabla vacia");
-
-
-				 ContentValues registro = new ContentValues();
-				 registro.put(Tablas.PROVEEDORES_ID,datosProv.get(0));
-				 registro.put(Tablas.PROVEEDORES_EMPRESA,datosProv.get(1));
-				 registro.put(Tablas.PROVEEDORES_TELEFONO,datosProv.get(2));
-				 registro.put(Tablas.PROVEEDORES_PROMOTOR,datosProv.get(3));
-				 registro.put(Tablas.PROVEEDORES_CELULAR,datosProv.get(4));
-				 registro.put(Tablas.PROVEEDORES_MAIL,datosProv.get(5));
-				 registro.put(Tablas.PROVEEDORES_FIREBASE,datosProv.get(6));
-				 registro.put(Tablas.PROVEEDORES_ESTADO,datosProv.get(7));
-
-				 db = conectar.getWritableDatabase();
-				 db.insert(Tablas.PROVEEDORES,null,registro);
-				 db.close();
-
-				 int n = numId()+1;
-				 String s = String.valueOf(n);
-				 String[] compa = {"id"};
-				 registro.clear();
-				 registro.put(Tablas.CONTROL_PROV,s);
-				 db = conectar.getWritableDatabase();
-				 db.update(Tablas.CONTROL,registro,Tablas.CONTROL_ID+"=?",compa);
-				 db.close();
-
-				 metodo.msg("datos guardados");
-
-				 limpiar();
-				 }
-
-
-				 }catch(Exception e){metodo.msg("Tabla vacia "+e.toString());}
-
-				 }
-				
-				*/
+				 }catch(Exception e){metodo.msg("error"+" "+e.toString());}
+				 
 				
 				break;
 				
@@ -236,56 +288,7 @@ public class Proveedores extends AppCompatActivity implements OnItemSelectedList
 				*/
 				
 				
-				/*
-				 public boolean idOk(String s)
-				 {
-				 boolean verifOk = false;
-
-				 try{
-				 tvIdProv.setText(s);
-
-				 String[] comparar = {s};
-				 String[] devolver = 
-				 {
-
-				 Tablas.PROVEEDORES_EMPRESA,
-				 Tablas.PROVEEDORES_TELEFONO,
-				 Tablas.PROVEEDORES_PROMOTOR,
-				 Tablas.PROVEEDORES_CELULAR,
-				 Tablas.PROVEEDORES_MAIL,
-				 Tablas.PROVEEDORES_FIREBASE,
-				 Tablas.PROVEEDORES_ESTADO
-
-				 };
-				 db = conectar.getReadableDatabase();
-				 c = db.query(Tablas.PROVEEDORES,devolver,Tablas.PROVEEDORES_ID+"=?",comparar,null,null,null);
-				 if(c.moveToFirst())
-				 {
-				 etNombProv.setText(c.getString(0));
-				 etTelefProv.setText(c.getString(1));
-				 etPromProv.setText(c.getString(2));
-				 etCelProv.setText(c.getString(3));
-				 etMailProv.setText(c.getString(4));
-				 spnEstado.setSelection(arrayEstado.indexOf(spnEstado.getSelectedItem().toString()));
-
-				 }else
-				 {
-				 msg(getString(R.string.id_no_existe));
-				 volver();
-				 }
-				 c.close();
-				 db.close();
-				 }
-
-				 catch(Exception e)
-				 {
-				 Toast.makeText(this,"aki "+e.toString(),Toast.LENGTH_LONG).show();
-				 }
-
-				 return verifOk;
-				 }
 				
-				*/
 				break;
 
 			case R.id.itmVolver:

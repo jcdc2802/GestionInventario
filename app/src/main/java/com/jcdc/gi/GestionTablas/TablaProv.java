@@ -136,80 +136,12 @@ public class TablaProv extends AppCompatActivity implements OnItemSelectedListen
 				try{
 
 					Intent prov = new Intent(this,com.jcdc.gi.GestionTablas.Proveedores.class);
+					prov.putExtra("strIdProv","Nuevo");
 					startActivity(prov);
 
 				}catch(Exception e){metodo.msg("error"+" "+e.toString());}
 
-				/*
-
-				 boolean datoNulo = false;
-
-				 datosProv.clear();
-				 datosProv.add("Prov"+numId());
-				 datosProv.add(etEmpProv.getText().toString());
-				 datosProv.add(etTelefProv.getText().toString());
-				 datosProv.add(etPromProv.getText().toString());
-				 datosProv.add(etCelProv.getText().toString());
-				 datosProv.add(etMailProv.getText().toString());
-				 datosProv.add("guardar");
-				 datosProv.add(spnEstado.getSelectedItem().toString());
-
-				 for(int i=0;i<datosProv.size();i++){
-
-				 if(datosProv.get(i).equals("")){datoNulo = true;}
-				 }
-
-				 if(datoNulo){
-
-				 metodo.msg("Algun dato es nulo");
-				 }else{
-
-				 try{
-
-				 boolean vacia = metCrud.tablaVacia(Tablas.PROVEEDORES);
-
-				 if(vacia){
-
-				 metodo.msg("tabla con registros");
-				 }else{
-
-				 metodo.msg("tabla vacia");
-
-
-				 ContentValues registro = new ContentValues();
-				 registro.put(Tablas.PROVEEDORES_ID,datosProv.get(0));
-				 registro.put(Tablas.PROVEEDORES_EMPRESA,datosProv.get(1));
-				 registro.put(Tablas.PROVEEDORES_TELEFONO,datosProv.get(2));
-				 registro.put(Tablas.PROVEEDORES_PROMOTOR,datosProv.get(3));
-				 registro.put(Tablas.PROVEEDORES_CELULAR,datosProv.get(4));
-				 registro.put(Tablas.PROVEEDORES_MAIL,datosProv.get(5));
-				 registro.put(Tablas.PROVEEDORES_FIREBASE,datosProv.get(6));
-				 registro.put(Tablas.PROVEEDORES_ESTADO,datosProv.get(7));
-
-				 db = conectar.getWritableDatabase();
-				 db.insert(Tablas.PROVEEDORES,null,registro);
-				 db.close();
-
-				 int n = numId()+1;
-				 String s = String.valueOf(n);
-				 String[] compa = {"id"};
-				 registro.clear();
-				 registro.put(Tablas.CONTROL_PROV,s);
-				 db = conectar.getWritableDatabase();
-				 db.update(Tablas.CONTROL,registro,Tablas.CONTROL_ID+"=?",compa);
-				 db.close();
-
-				 metodo.msg("datos guardados");
-
-				 limpiar();
-				 }
-
-
-				 }catch(Exception e){metodo.msg("Tabla vacia "+e.toString());}
-
-				 }
-
-				 */
+				
 
 				break;
 				
@@ -345,6 +277,7 @@ public class TablaProv extends AppCompatActivity implements OnItemSelectedListen
 			 try{
 
 			 Intent prov = new Intent(this,com.jcdc.gi.GestionTablas.Proveedores.class);
+			 prov.putExtra("strIdProv",id);
 			 startActivity(prov);
 
 			 }catch(Exception e){metodo.msg("error"+" "+e.toString());}
