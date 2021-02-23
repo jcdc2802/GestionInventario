@@ -49,7 +49,7 @@ public class TablaProv extends AppCompatActivity implements OnItemSelectedListen
 		tablaOk = metCrud.tablaVacia(Tablas.PROVEEDORES);
 		
 		if(tablaOk){
-			metodo.msg("tabla con registros");
+			//metodo.msg("tabla con registros");
 			
 			
 			 try{
@@ -117,7 +117,7 @@ public class TablaProv extends AppCompatActivity implements OnItemSelectedListen
 	{
 		getMenuInflater().inflate(R.menu.menu_edicion, menu);
 
-		MenuItem item = menu.findItem(R.id.itmEditar);
+		MenuItem item = menu.findItem(R.id.itmEliminar);
 		//if(strProd.equals("nuevo")){item.setVisible(false);}
 
         return true;
@@ -131,7 +131,7 @@ public class TablaProv extends AppCompatActivity implements OnItemSelectedListen
 
 		switch (item.getItemId()) 
 		{
-			case R.id.itmNuevo:
+			case R.id.itmGuardar:
 				
 				try{
 
@@ -145,7 +145,7 @@ public class TablaProv extends AppCompatActivity implements OnItemSelectedListen
 
 				break;
 				
-			case R.id.itmEditar:
+			case R.id.itmEliminar:
 				
 				showdialogoBuscar();
 				

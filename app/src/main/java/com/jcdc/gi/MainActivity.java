@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
 
 			if(tablaOk){
 
-				metodo.msg("tabla con registros");
+				//metodo.msg("tabla con registros");
 			}else{
 
 				metodo.msg("tabla vacia");

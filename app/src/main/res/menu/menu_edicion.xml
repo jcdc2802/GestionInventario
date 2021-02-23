@@ -3,13 +3,13 @@
     tools:context=".Main" >
 
 	<item 
-		android:id="@+id/itmNuevo"
+		android:id="@+id/itmGuardar"
 		android:title="Nuevo"
         android:orderInCategory="1"
         android:showAsAction="ifRoom" />
 
 	<item 
-		android:id="@+id/itmEditar"
+		android:id="@+id/itmEliminar"
         android:title="Editar"
         android:orderInCategory="2"
         android:showAsAction="ifRoom" />
