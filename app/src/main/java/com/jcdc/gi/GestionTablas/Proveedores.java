@@ -300,28 +300,13 @@ public class Proveedores extends AppCompatActivity implements OnItemSelectedList
 					
 				}
 				
-				
-				//*******************************************
-							
-				
-				//******************************************
-				
-
 				volver();
 
 				return true;
 
 			case R.id.itmEliminar:
-				/*
-				 try{
-
-				 Intent prov = new Intent(this,com.jcdc.gi.GestionTablas.Proveedores.class);
-				 startActivity(prov);
-
-				 }catch(Exception e){metodo.msg("error"+" "+e.toString());}
-				 */
-
-
+				
+				showdialogoElim();
 
 				return true;
 
@@ -348,6 +333,63 @@ public class Proveedores extends AppCompatActivity implements OnItemSelectedList
 		}catch(Exception e){metodo.msg("error"+" "+e.toString());}
 		
 		
+	}
+	
+	
+	
+	
+	
+	
+	private void showdialogoElim(){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+		builder
+			.setTitle("Alerta")
+			.setMessage("Puede que este vinculado")
+
+			.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+
+					eliminarProv();
+				}
+			})
+
+			.setNegativeButton("No", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.dismiss();
+					volver();
+
+				}
+			})
+
+			.show();
+    }
+	//************************************************************/
+	public void eliminarProv()
+	{
+		//Boolean elim = false;
+		String[] comparar = {tvIdProv.getText().toString()};
+		
+		db = conectar.getReadableDatabase();
+		/*
+		c = db.query(Utilidades.TABLA_COMPRAS,null,Utilidades.COL_ID_PROV_COMP+"=?",comparar,null,null,null);
+		if(c.moveToFirst()){elim = true;}
+		c.close();
+		db.close();
+		
+		db = conectar.getWritableDatabase();
+		if(elim){
+			db.delete(Utilidades.TABLA_COMPRAS,Utilidades.COL_ID_PROV_COMP+"=?",comparar);
+		}
+		*/
+		db.delete(Tablas.PROVEEDORES,Tablas.PROVEEDORES_ID+"=?",comparar);
+		db.close();
+
+		metodo.msg("Proveedor eliminado");
+		volver();
 	}
 	
 	
