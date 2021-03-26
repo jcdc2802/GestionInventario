@@ -11,5 +11,44 @@
 	
 	<string name="activo">Activo</string>
 	<string name="inactivo">Inactivo</string>
+	
+	<string name="si">Si</string>
+	<string name="no">No</string>
+	<string name="alerta">Alerta</string>
+	<string name="puede_estar_vinculado">Puede estar vinculado</string>
+	<string name="nuevo">Nuevo</string>
+	<string name="guardar">Guardar</string>
+	<string name="buscar">Buscar</string>
+	<string name="cancelar">Cancelar</string>
+	<string name="editar">Editar</string>
+	<string name="eliminar">Eliminar</string>
+	<string name="eliminado">Eliminado</string>
+	<string name="volver">Volver</string>
+	<string name="editar_eliminar">Editar/Eliminar</string>
+	<string name="ya_existe">Ya Existe</string>
+	<string name="no_existe_ese_id">No existe ese Id</string>
+	<string name="datos_guardados">Datos Guardados</string>
+	<string name="tabla_vacia">Tabla Vacia</string>
+	<string name="faltan_datos">Faltan Datos</string>
+	<string name="datos_actualizados">Datos Actualizados</string>
+	
+	<string name="proveedor">Proveedor</string>
+	<string name="proveedores">Proveedores</string>
+	<string name="prov">Prov</string>
+	<string name="id_prov">Id_Prov</string>
+	<string name="empresa">Empresa</string>
+	<string name="promotor">Promotor</string>
+	<string name="celular">Celular</string>
+	<string name="proveedores">Proveedores</string>
+	<string name="proveedores">Proveedores</string>
+	<string name="proveedores">Proveedores</string>
+	<string name="proveedores">Proveedores</string>
+	<string name="proveedores">Proveedores</string>
+	<string name="proveedores">Proveedores</string>
+	<string name="proveedores">Proveedores</string>
+	<string name="proveedores">Proveedores</string>
+	<string name="proveedores">Proveedores</string>
+	<string name="proveedores">Proveedores</string>
+	<string name="proveedores">Proveedores</string>
 
 </resources>

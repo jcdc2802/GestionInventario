@@ -90,7 +90,7 @@ public class TablaProv extends AppCompatActivity implements OnItemSelectedListen
 			
 			
 		}else{
-			metodo.msg("tabla vacia");
+			metodo.msg(getString(R.string.tabla_vacia));
 		}
 
 		
@@ -207,22 +207,22 @@ public class TablaProv extends AppCompatActivity implements OnItemSelectedListen
 		View vista = this.getLayoutInflater().inflate(R.layout.layout_buscar,null);
 		final EditText etIdBuscar = vista.findViewById(R.id.etIdBuscar);
 		TextView tvIdBuscar = vista.findViewById(R.id.tvIdBuscar);
-		tvIdBuscar.setText("Prov");
+		tvIdBuscar.setText(getString(R.string.prov));
 
 		builder.setView(vista)
 
-			.setPositiveButton("Buscar", new DialogInterface.OnClickListener() {
+			.setPositiveButton(getString(R.string.buscar), new DialogInterface.OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 
-					String strIdProv = "Prov"+etIdBuscar.getText().toString();
+					String strIdProv = getString(R.string.prov)+etIdBuscar.getText().toString();
 					//buscarProv(strIdProv);
 					verificarId(strIdProv);
 
 				}
 			})
 
-			.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+			.setNegativeButton(getString(R.string.cancelar), new DialogInterface.OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					dialog.dismiss();
@@ -285,7 +285,7 @@ public class TablaProv extends AppCompatActivity implements OnItemSelectedListen
 			
 		}else
 		{
-			metodo.msg("No existe ese Id");
+			metodo.msg(getString(R.string.no_existe_ese_id));
 			//volver();
 		}
 		

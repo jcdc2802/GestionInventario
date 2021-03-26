@@ -59,8 +59,8 @@ public class Proveedores extends AppCompatActivity implements OnItemSelectedList
 
 		//Spinner Estado
 		arrayEstado = new ArrayList<>();
-		arrayEstado.add("Activo");
-		arrayEstado.add("Inactivo");
+		arrayEstado.add(getString(R.string.activo));
+		arrayEstado.add(getString(R.string.inactivo));
 		spnEstado = findViewById(R.id.spnEstadoProv);
 		ArrayAdapter<CharSequence> adapEstado = ArrayAdapter.createFromResource(
 			this,
@@ -71,8 +71,8 @@ public class Proveedores extends AppCompatActivity implements OnItemSelectedList
 
 		strIdProv = getIntent().getExtras().getString("strIdProv");
 
-		if(strIdProv.equals("Nuevo")){
-			tvIdProv.setText("Prov"+numId());
+		if(strIdProv.equals(getString(R.string.nuevo))){
+			tvIdProv.setText(getString(R.string.prov)+numId());
 		}else{
 			tvIdProv.setText(strIdProv);
 
@@ -178,12 +178,12 @@ public class Proveedores extends AppCompatActivity implements OnItemSelectedList
 		MenuItem itemGuardar = menu.findItem(R.id.itmGuardar);
 		MenuItem itemEliminar = menu.findItem(R.id.itmEliminar);
 
-		if(strIdProv.equals("Nuevo")){
+		if(strIdProv.equals(getString(R.string.nuevo))){
 			itemEliminar.setVisible(false);
-			itemGuardar.setTitle("Guardar");
+			itemGuardar.setTitle(getString(R.string.guardar));
 		}else{
-			itemGuardar.setTitle("Guardar");
-			itemEliminar.setTitle("Eliminar");
+			itemGuardar.setTitle(getString(R.string.guardar));
+			itemEliminar.setTitle(getString(R.string.eliminar));
 		}
 
         return true;
@@ -192,14 +192,9 @@ public class Proveedores extends AppCompatActivity implements OnItemSelectedList
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
-		//arrayRegistro.clear();
-		//Boolean flat = true;
-
 		switch (item.getItemId()) 
 		{
 			case R.id.itmGuardar:
-				
-				boolean datoExiste = true;
 				
 				//almacenamos los datos del formulario(ingresado por teclado)
 				datosProv.clear();
@@ -222,83 +217,107 @@ public class Proveedores extends AppCompatActivity implements OnItemSelectedList
 				}	
 
 				if(datosOk)//si los datos estan ok procedemos
-				{}
-				
-				//******************************************
-				
-				//verificar si la empresa a insertar ya existe
-				
-				
-				db = conectar.getReadableDatabase();//abrimos la base en modo lectura
-				c =  db.rawQuery(" SELECT DISTINCT "+Tablas.PROVEEDORES_ID+" FROM "+Tablas.PROVEEDORES+" WHERE empresa='"+datosProv.get(1)+"' AND promotor='"+datosProv.get(3)+"'", null);
-				if(c.moveToFirst()){
+				{
+					//***** codigo aqui ****
 					
-					metodo.msg("ya existe");
-					datoExiste = false;
-				}
-				c.close();
-				db.close();
-				
-				if(datoExiste){
 					
-					ContentValues registro = new ContentValues();
-
-					if(strIdProv.equals("Nuevo")){
-						registro.put(Tablas.PROVEEDORES_ID,datosProv.get(0));}
-
-					registro.put(Tablas.PROVEEDORES_EMPRESA,datosProv.get(1));
-					registro.put(Tablas.PROVEEDORES_TELEFONO,datosProv.get(2));
-					registro.put(Tablas.PROVEEDORES_PROMOTOR,datosProv.get(3));
-					registro.put(Tablas.PROVEEDORES_CELULAR,datosProv.get(4));
-					registro.put(Tablas.PROVEEDORES_MAIL,datosProv.get(5));
-					registro.put(Tablas.PROVEEDORES_FIREBASE,datosProv.get(6));
-					registro.put(Tablas.PROVEEDORES_ESTADO,datosProv.get(7));
-
 					//******************************************
-					if(strIdProv.equals("Nuevo")){
 
-						try{
+					//verificar si la empresa a insertar ya existe
 
-							db = conectar.getWritableDatabase();
-							db.insert(Tablas.PROVEEDORES,null,registro);
-							db.close();
+					boolean datoExiste = true;
+					String idProv = "";
 
-							int n = numId()+1;
-							String s = String.valueOf(n);
-							String[] compa = {"id"};
-							registro.clear();
-							registro.put(Tablas.CONTROL_PROV,s);
+					db = conectar.getReadableDatabase();//abrimos la base en modo lectura
+					c =  db.rawQuery(" SELECT DISTINCT "+Tablas.PROVEEDORES_ID+" FROM "+Tablas.PROVEEDORES+" WHERE empresa='"+datosProv.get(1)+"' AND promotor='"+datosProv.get(3)+"'", null);
+					if(c.moveToFirst()){
 
-							db = conectar.getWritableDatabase();
-							db.update(Tablas.CONTROL,registro,Tablas.CONTROL_ID+"=?",compa);
-							db.close();
+						idProv = c.getString(0);
+						metodo.msg(getString(R.string.ya_existe));
+						/*
+						metodo.msg("id Tabla: "+idProv);
+						metodo.msg("id Ingreso: "+datosProv.get(0));
+						*/
+						if(!idProv.equals(datosProv.get(0))){
+							
+							datoExiste = false;
+						}
+						
+						
+					}
+					c.close();
+					db.close();
 
-							metodo.msg("datos guardados");
+					if(datoExiste){
 
-							limpiar();
+						ContentValues registro = new ContentValues();
 
-						}catch(Exception e){metodo.msg("Tabla vacia "+e.toString());}
+						if(strIdProv.equals("Nuevo")){
+							registro.put(Tablas.PROVEEDORES_ID,datosProv.get(0));}
 
-					}else{
+						registro.put(Tablas.PROVEEDORES_EMPRESA,datosProv.get(1));
+						registro.put(Tablas.PROVEEDORES_TELEFONO,datosProv.get(2));
+						registro.put(Tablas.PROVEEDORES_PROMOTOR,datosProv.get(3));
+						registro.put(Tablas.PROVEEDORES_CELULAR,datosProv.get(4));
+						registro.put(Tablas.PROVEEDORES_MAIL,datosProv.get(5));
+						registro.put(Tablas.PROVEEDORES_FIREBASE,datosProv.get(6));
+						registro.put(Tablas.PROVEEDORES_ESTADO,datosProv.get(7));
 
-						try
-						{	
+						//******************************************
+						if(strIdProv.equals("Nuevo")){
 
-							String str = datosProv.get(0);//IdProv(ingresado) 
-							String[] compa = {str};
+							try{
 
-							db = conectar.getWritableDatabase();
-							db.update(Tablas.PROVEEDORES,registro,Tablas.PROVEEDORES_ID+"=?",compa);
-							db.close();
+								db = conectar.getWritableDatabase();
+								db.insert(Tablas.PROVEEDORES,null,registro);
+								db.close();
 
-							metodo.msg("datos_actualizados");
+								int n = numId()+1;
+								String s = String.valueOf(n);
+								String[] compa = {"id"};
+								registro.clear();
+								registro.put(Tablas.CONTROL_PROV,s);
+
+								db = conectar.getWritableDatabase();
+								db.update(Tablas.CONTROL,registro,Tablas.CONTROL_ID+"=?",compa);
+								db.close();
+
+								metodo.msg(getString(R.string.datos_guardados));
+
+								//limpiar();
+
+							}catch(Exception e){metodo.msg(getString(R.string.tabla_vacia)+e.toString());}
+
+						}else{
+
+							try
+							{	
+
+								String str = datosProv.get(0);//IdProv(ingresado) 
+								String[] compa = {str};
+
+								db = conectar.getWritableDatabase();
+								db.update(Tablas.PROVEEDORES,registro,Tablas.PROVEEDORES_ID+"=?",compa);
+								db.close();
+
+								metodo.msg(getString(R.string.datos_actualizados));
 
 
-						}catch(Exception e){metodo.msg("error"+" "+e.toString());}
+							}catch(Exception e){metodo.msg("error"+" "+e.toString());}
+
+						}
 
 					}
+
+					//********************
 					
+					
+					
+				}else{
+					metodo.msg(getString(R.string.faltan_datos));
 				}
+				
+				
 				
 				volver();
 
@@ -336,19 +355,15 @@ public class Proveedores extends AppCompatActivity implements OnItemSelectedList
 	}
 	
 	
-	
-	
-	
-	
 	private void showdialogoElim(){
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
 		builder
-			.setTitle("Alerta")
-			.setMessage("Puede que este vinculado")
+			.setTitle(getString(R.string.alerta))
+			.setMessage(getString(R.string.puede_estar_vinculado))
 
-			.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+			.setPositiveButton(getString(R.string.si), new DialogInterface.OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 
@@ -356,7 +371,7 @@ public class Proveedores extends AppCompatActivity implements OnItemSelectedList
 				}
 			})
 
-			.setNegativeButton("No", new DialogInterface.OnClickListener() {
+			.setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					dialog.dismiss();
@@ -388,7 +403,8 @@ public class Proveedores extends AppCompatActivity implements OnItemSelectedList
 		db.delete(Tablas.PROVEEDORES,Tablas.PROVEEDORES_ID+"=?",comparar);
 		db.close();
 
-		metodo.msg("Proveedor eliminado");
+		metodo.msg(getString(R.string.proveedor));
+		metodo.msg(getString(R.string.eliminado));
 		volver();
 	}
 	
