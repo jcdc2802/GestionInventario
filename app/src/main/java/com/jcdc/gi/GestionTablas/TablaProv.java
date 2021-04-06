@@ -127,7 +127,7 @@ public class TablaProv extends AppCompatActivity implements OnItemSelectedListen
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
 		//arrayRegistro.clear();
-		Boolean flat = true;
+		//Boolean flat = true;
 
 		switch (item.getItemId()) 
 		{
@@ -206,7 +206,10 @@ public class TablaProv extends AppCompatActivity implements OnItemSelectedListen
 
 		View vista = this.getLayoutInflater().inflate(R.layout.layout_buscar,null);
 		final EditText etIdBuscar = vista.findViewById(R.id.etIdBuscar);
+		TextView tvTitulo = vista.findViewById(R.id.tvTitulo);
 		TextView tvIdBuscar = vista.findViewById(R.id.tvIdBuscar);
+		
+		tvTitulo.setText(getString(R.string.proveedor));
 		tvIdBuscar.setText(getString(R.string.prov));
 
 		builder.setView(vista)
@@ -214,9 +217,8 @@ public class TablaProv extends AppCompatActivity implements OnItemSelectedListen
 			.setPositiveButton(getString(R.string.buscar), new DialogInterface.OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
-
-					String strIdProv = getString(R.string.prov)+etIdBuscar.getText().toString();
-					//buscarProv(strIdProv);
+					//*** aqui hay que eliminar prov 
+					String strIdProv = etIdBuscar.getText().toString();
 					verificarId(strIdProv);
 
 				}
@@ -240,22 +242,12 @@ public class TablaProv extends AppCompatActivity implements OnItemSelectedListen
 		boolean verifOk = false;
 		
 		try{
-			//tvIdProv.setText(s);
-
 			String[] comparar = {s};
-			
-			String[] obtener = {
-				Tablas.PROVEEDORES_EMPRESA
-				
-			};
+			String[] obtener = {Tablas.PROVEEDORES_EMPRESA};
 			
 			db = conectar.getReadableDatabase();
 			c = db.query(Tablas.PROVEEDORES,obtener,Tablas.PROVEEDORES_ID+"=?",comparar,null,null,null);
-			if(c.moveToFirst())
-			{
-				verifOk = true;
-
-			}
+			if(c.moveToFirst()){ verifOk = true; }
 			c.close();
 			db.close();
 		}
@@ -273,25 +265,41 @@ public class TablaProv extends AppCompatActivity implements OnItemSelectedListen
 	{
 		if(idOk(id)){
 			
-			
 			 try{
-
-			 Intent prov = new Intent(this,com.jcdc.gi.GestionTablas.Proveedores.class);
-			 prov.putExtra("strIdProv",id);
-			 startActivity(prov);
-
-			 }catch(Exception e){metodo.msg("error"+" "+e.toString());}
+				 	Intent prov = new Intent(this,com.jcdc.gi.GestionTablas.Proveedores.class);
+				 	prov.putExtra("strIdProv",id);
+				 	startActivity(prov);
+				 
+				}catch(Exception e){metodo.msg("error"+" "+e.toString());}
 			 
 			
 		}else
 		{
-			metodo.msg(getString(R.string.no_existe_ese_id));
-			//volver();
+			showAlertaMsg(getString(R.string.alerta)+"  "+getString(R.string.ese)+"  "+getString(R.string.id)+"  "+getString(R.string.no)+"  "+getString(R.string.existe));
 		}
-		
 		
 	}
 	
+	
+	private void showAlertaMsg(String str){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+		builder
+			.setTitle(str)
+			.setMessage(getString(R.string.porfavor)+"  "+getString(R.string.verifique)+"  "+getString(R.string.los)+"  "+getString(R.string.datos))
+
+			.setPositiveButton(getString(R.string.aceptar), new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+
+					dialog.dismiss();
+					//volver();
+				}
+			})
+
+			.show();
+    }
 	
 	
 }

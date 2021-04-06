@@ -12,10 +12,24 @@
 	<string name="activo">Activo</string>
 	<string name="inactivo">Inactivo</string>
 	
+	<string name="id">Id</string>
 	<string name="si">Si</string>
 	<string name="no">No</string>
+	<string name="ya">ya</string>
+	<string name="ese">ese</string>
+	<string name="este">este</string>
+	<string name="item">item</string>
+	<string name="porfavor">porfavor</string>
+	<string name="verifique">verifique</string>
+	<string name="los">los</string>
+	<string name="datos">datos</string>
+	<string name="aceptar">Aceptar</string>
 	<string name="alerta">Alerta</string>
-	<string name="puede_estar_vinculado">Puede estar vinculado</string>
+	<string name="puede_estar">puede estar</string>
+	<string name="vinculado">vinculado</string>
+	<string name="a_otros">a otros</string>
+	<string name="desea">desea</string>
+	<string name="de_igual_manera">de igual manera</string>
 	<string name="nuevo">Nuevo</string>
 	<string name="guardar">Guardar</string>
 	<string name="buscar">Buscar</string>
@@ -25,12 +39,12 @@
 	<string name="eliminado">Eliminado</string>
 	<string name="volver">Volver</string>
 	<string name="editar_eliminar">Editar/Eliminar</string>
-	<string name="ya_existe">Ya Existe</string>
-	<string name="no_existe_ese_id">No existe ese Id</string>
-	<string name="datos_guardados">Datos Guardados</string>
+	<string name="editar_id">Editar Id</string>
+	<string name="existe">Existe</string>
+	<string name="guardados">Guardados</string>
 	<string name="tabla_vacia">Tabla Vacia</string>
-	<string name="faltan_datos">Faltan Datos</string>
-	<string name="datos_actualizados">Datos Actualizados</string>
+	<string name="faltan">Faltan</string>
+	<string name="actualizados">Actualizados</string>
 	
 	<string name="proveedor">Proveedor</string>
 	<string name="proveedores">Proveedores</string>

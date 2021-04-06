@@ -1,11 +1,12 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical">
-	
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+
 	<TextView
-		android:text="Producto"
-		android:id="@+id/etTitulo"
+		android:id="@+id/tvTitulo"
 		android:layout_width="match_parent"
 		android:layout_height="35dp"
 		android:textColor="#FFFFFF"
@@ -23,8 +24,8 @@
 			android:layout_weight="1"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:textColor="#000000"
-			android:gravity="center"
+			android:textColor="#1764EF"
+			android:gravity="right|center_vertical"
 			android:textSize="20sp"/>
 
 		<TextView
@@ -37,14 +38,15 @@
 			android:gravity="right"/>
 
 		<EditText
-			android:layout_weight="2"
+			android:layout_weight="4"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:textColor="#1764EF"
+			android:textColor="#000000"
 			android:id="@+id/etIdBuscar"
 			android:textSize="20sp"
-			android:inputType="number"/>
+			android:inputType="textCapWords"/>
 
 	</LinearLayout>
-    
+
 </LinearLayout>
+
